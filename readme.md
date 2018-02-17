@@ -31,10 +31,12 @@ mkdir -p src data
 
 docker run -d --name opengrok \
     -p 8080:8080 \
-    -e JAVA_OPTS="-Xms512m -Xmx512m" \
     -v `pwd`/src:/var/opengrok/src:rw \
     -v `pwd`/data:/var/opengrok/data:rw \
     yqsy021/opengrok
+
+# 如果是内存小加上
+-e JAVA_OPTS="-Xms512m -Xmx512m" \
 
 # 第一次启动时必须执行
 # 重建索引时执行
